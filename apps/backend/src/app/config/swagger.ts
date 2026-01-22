@@ -18,10 +18,6 @@ const options: Options = {
         url: "http://localhost:5000",
         description: "Development server",
       },
-      {
-        url: "https://your-production-url.com",
-        description: "Production server",
-      },
     ],
     tags: [
       {

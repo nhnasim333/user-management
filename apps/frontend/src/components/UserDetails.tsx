@@ -38,12 +38,12 @@ export function UserDetails({ userId }: UserDetailsProps) {
 
       return { previousUser };
     },
-    onError: (err, id, context) => {
+    onError: (_err, id, context) => {
       if (context?.previousUser) {
         queryClient.setQueryData(["user", id], context.previousUser);
       }
     },
-    onSettled: (data, error, id) => {
+    onSettled: (_data, _error, id) => {
       queryClient.invalidateQueries({ queryKey: ["user", id] });
       queryClient.invalidateQueries({ queryKey: ["users"] });
     },

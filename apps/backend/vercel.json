@@ -1,15 +1,21 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "npx prisma generate && npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": null,
+  "functions": {
+    "api/serverless.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
     {
-      "src": "dist/server.js",
-      "use": "@vercel/node"
+      "source": "/(.*)",
+      "destination": "/api/serverless"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/server.js"
-    }
-  ]
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
