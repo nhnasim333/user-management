@@ -13,64 +13,64 @@ async function main() {
   const users = await Promise.all([
     prisma.user.create({
       data: {
-        name: "John Doe",
-        email: "john@example.com",
+        name: "A User",
+        email: "auser@gmail.com",
         role: "admin",
         active: true,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Jane Smith",
-        email: "jane@example.com",
+        name: "B User",
+        email: "buser@gmail.com",
         role: "editor",
         active: false,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Bob Johnson",
-        email: "bob@example.com",
+        name: "C User",
+        email: "cuser@gmail.com",
         role: "viewer",
         active: true,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Alice Williams",
-        email: "alice@example.com",
+        name: "D User",
+        email: "duser@gmail.com",
         role: "admin",
         active: true,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Charlie Brown",
-        email: "charlie@example.com",
+        name: "E User",
+        email: "euser@gmail.com",
         role: "editor",
         active: true,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Diana Prince",
-        email: "diana@example.com",
+        name: "F User",
+        email: "fuser@gmail.com",
         role: "viewer",
         active: false,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Edward Norton",
-        email: "edward@example.com",
+        name: "G User",
+        email: "guser@gmail.com",
         role: "viewer",
         active: true,
       },
     }),
     prisma.user.create({
       data: {
-        name: "Fiona Green",
-        email: "fiona@example.com",
+        name: "H User",
+        email: "huser@gmail.com",
         role: "admin",
         active: true,
       },

@@ -5,9 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { User } from "@/types/user";
 
 interface UserDetailsProps {
   userId: string;
+}
+interface ToggleMutationContext {
+  previousUser: User | undefined;
 }
 
 export function UserDetails({ userId }: UserDetailsProps) {
@@ -24,26 +28,35 @@ export function UserDetails({ userId }: UserDetailsProps) {
     enabled: !!userId,
   });
 
-  const toggleActiveMutation = useMutation({
+  const toggleActiveMutation = useMutation<
+    User,
+    Error,
+    string,
+    ToggleMutationContext
+  >({
     mutationFn: (id: string) => usersApi.toggleUserActive(id),
-    onMutate: async (id) => {
+    onMutate: async (id: string) => {
       await queryClient.cancelQueries({ queryKey: ["user", id] });
 
-      const previousUser = queryClient.getQueryData(["user", id]);
+      const previousUser = queryClient.getQueryData<User>(["user", id]);
 
-      queryClient.setQueryData(["user", id], (old: any) => {
+      queryClient.setQueryData<User>(["user", id], (old: User | undefined) => {
         if (!old) return old;
         return { ...old, active: !old.active };
       });
 
       return { previousUser };
     },
-    onError: (_err, id, context) => {
+    onError: (
+      _err: Error,
+      id: string,
+      context: ToggleMutationContext | undefined,
+    ) => {
       if (context?.previousUser) {
         queryClient.setQueryData(["user", id], context.previousUser);
       }
     },
-    onSettled: (_data, _error, id) => {
+    onSettled: (_data: User | undefined, _error: Error | null, id: string) => {
       queryClient.invalidateQueries({ queryKey: ["user", id] });
       queryClient.invalidateQueries({ queryKey: ["users"] });
     },

@@ -85,6 +85,8 @@ pnpm backend:dev      # Backend: http://localhost:5000
 pnpm frontend:dev     # Frontend: http://localhost:5173
 ```
 
+### Live Link: [https://user-management-system-mocha-ten.vercel.app](https://user-management-system-mocha-ten.vercel.app)
+
 ## Features
 
 **User Management**
