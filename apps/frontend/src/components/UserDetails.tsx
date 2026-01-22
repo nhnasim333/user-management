@@ -145,9 +145,6 @@ export function UserDetails({ userId }: UserDetailsProps) {
         </div>
 
         <div className="pt-4 border-t">
-          <div className="text-sm font-medium text-muted-foreground mb-2">
-            ⭐ Bonus
-          </div>
           <div className="text-sm text-muted-foreground mb-4">
             Viewing profile for {viewingSeconds} seconds
           </div>

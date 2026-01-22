@@ -14,6 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      // "https://user-management-system-mocha-ten.vercel.app",
     ],
     credentials: true,
   })
