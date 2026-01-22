@@ -89,11 +89,13 @@ pnpm frontend:dev     # Frontend: http://localhost:5173
 
 **User Management**
 
-- List all users with pagination-ready structure
+- List all users
 - Search users by name
 - Filter by role (admin/editor/viewer)
 - Sort users alphabetically
 - Toggle user active status
+- View user details
+- Create new users
 
 **Real-time Updates**
 
