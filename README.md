@@ -43,8 +43,8 @@ A full-stack application for managing users with search, filtering, and real-tim
 ### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
-cd tixio_assignment
+git clone https://github.com/nhnasim333/user-management.git
+cd user-management
 ```
 
 ### 2. Install Dependencies
