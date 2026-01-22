@@ -93,8 +93,8 @@ pnpm frontend:dev     # Frontend: http://localhost:5173
 - Search users by name
 - Filter by role (admin/editor/viewer)
 - Sort users alphabetically
-- Toggle user active status
 - View user details
+- Toggle user active status
 - Create new users
 
 **Real-time Updates**

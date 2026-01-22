@@ -1,4 +1,6 @@
+import httpStatus from "http-status";
 import prisma from "../../config/prisma";
+import AppError from "../../errors/AppError";
 import { TUserQuery } from "./user.interface";
 
 const getAllUsers = async (query: TUserQuery) => {
@@ -43,6 +45,14 @@ const createUser = async (userData: {
   role?: "admin" | "editor" | "viewer";
   active?: boolean;
 }) => {
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      email: userData.email,
+    },
+  });
+  if (existingUser) {
+    throw new AppError(httpStatus.CONFLICT, "This email is already in use");
+  }
   const user = await prisma.user.create({
     data: userData,
   });
